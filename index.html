@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Muhasebe</title>
+<meta name="theme-color" content="#1F3864">
+<meta name="apple-mobile-web-app-title" content="Muhasebe">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+  html,body{margin:0;height:100%;background:#1F3864;color:#fff;font:16px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  .w{min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:24px;box-sizing:border-box;text-align:center}
+  img{width:112px;height:112px;border-radius:26px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+  h1{margin:0;font-size:20px}
+  p{margin:0;opacity:.75;font-size:14px;max-width:320px}
+  a{display:inline-block;margin-top:6px;background:#F2B705;color:#1F3864;font-weight:700;text-decoration:none;padding:13px 26px;border-radius:12px}
+</style>
+</head>
+<body>
+<div class="w">
+  <img src="icon-512.png" alt="">
+  <h1>Miraç Cep Otomat · Muhasebe</h1>
+  <p id="msg">Açılıyor…</p>
+  <a id="git" href="#">Uygulamayı Aç</a>
+</div>
+<script>
+  // ↓↓↓ Apps Script'te "Dağıt" deyince verilen web uygulaması adresini buraya yapıştırın ↓↓↓
+  var UYGULAMA = 'https://script.google.com/macros/s/AKfycbzchK7M1G1ou63jdbV8Y3uMuCCMTxOgadY4n1q3JvTawG_EuPZohuJCPnnFJYurzjBi/exec';
+  var a = document.getElementById('git');
+  if (UYGULAMA.indexOf('https://') === 0) {
+    a.href = UYGULAMA;
+    setTimeout(function () { location.replace(UYGULAMA); }, 400);
+  } else {
+    document.getElementById('msg').textContent = 'Kurulum tamamlanmamış: index.html içindeki adresi girin.';
+    a.style.display = 'none';
+  }
+</script>
+</body>
+</html>
